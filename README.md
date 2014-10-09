@@ -1,10 +1,14 @@
+# Q42 specific branch
+
+Original: [https://github.com/shinydevelopment/SimulatorStatusMagic](https://github.com/shinydevelopment/SimulatorStatusMagic)
+
 ## Simulator Status Magic
 
 Modify the iOS Simulator so that it has a perfect status bar, then run your app and take perfect screenshots every time. The modifications made are designed to match the images you see on the Apple site and are as follows:
 
-* 9:41 AM is displayed for the time.
+* 9:42 AM is displayed for the time.
 * The battery is full and shows 100%.
-* On iPhone: The carrier text is removed, 5 bars of cellular signal and full WiFi bars are displayed.
+* On iPhone: The carrier text is set to "Q42" and full WiFi bars are displayed.
 * On iPad: The carrier text is set to "iPad" and full WiFi bars are displayed.
 
 ### How do I use it?

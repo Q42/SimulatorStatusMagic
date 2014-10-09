@@ -152,22 +152,20 @@ typedef struct {
 
   // Set 9:41 time in current localization
   NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-  [dateFormatter setDateFormat:@"h:mm a"];
-  NSDate *date = [dateFormatter dateFromString:@"9:41 AM"];
+  [dateFormatter setDateFormat:@"H:mm"];
+  NSDate *date = [dateFormatter dateFromString:@"9:42"];
   NSString *dateString = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:date]];
   overrides->overrideTimeString = 1;
   strcpy(overrides->values.timeString, [dateString cStringUsingEncoding:NSUTF8StringEncoding]);
 
   // Enable 5 bars of mobile (iPhone only)
   if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
-    overrides->booloverrideItemIsEnabled[3] = 1;
-    overrides->values.boolitemIsEnabled[3] = 1;
-    overrides->overrideGsmSignalStrengthBars = 1;
+    overrides->overrideGsmSignalStrengthBars = 0;
     overrides->values.gsmSignalStrengthBars = 5;
   }
 
   // Remove carrier text for iPhone, set it to "iPad" for the iPad
-  NSString *carrierText = ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) ? @"" : @"iPad";
+  NSString *carrierText = ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) ? @"Q42" : @"iPad";
   overrides->overrideServiceString = 1;
   strcpy(overrides->values.serviceString, [carrierText cStringUsingEncoding:NSUTF8StringEncoding]);
 
